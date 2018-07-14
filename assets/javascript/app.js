@@ -6,28 +6,65 @@ var table=$("<table>");
 
 $(".button").on("click",function(){
     console.log(userSearch);
-    var userSearch = $(".input").val();
+    var userSearch = $("#artist-search").val();
     $ .ajax({
         url:ticketQueryURL + userSearch,
         method:"GET",
     }).then(function(response){
         console.log(response);
         
-        for(var i=0;i<5;i++){
-        //  Event Name
-        $(".body").append(response._embedded.events[i].name);
-        // // Event date
-        $(".body").append(response._embedded.events[i].dates.start.localDate);
-        // // Event Location
-        $(".body").append(response._embedded.events[i]._embedded.venues[i].name);
-        // // Ticket Price
-        // $(".body").append(response._embedded.events[i]._embedded.venues[i].state.name);
+        for(var i=0;i<3;i++){
+           var showName=response._embedded.events[i].name;
+           var dates=response._embedded.events[i].dates.start.localDate;
+           var venue=response._embedded.events[i]._embedded.venues[0].name;
+           var cityName=response._embedded.events[i]._embedded.venues[0].city.name;
+           var newRow=$("<tr>");
+        
+           newRow.append($("<td>"+showName+"</td>"));
+           newRow.append($('<td>' + venue + '</td>'));
+           newRow.append($('<td>' + dates + '</td>'));
+           newRow.append($("<td>"+cityName+"</td>"));
+
+           $('.tab').append(newRow);
         }
-        //  $(".body").append($("<img>").attr("src",response._embedded.events["0"].images["0"].url));
+        
          
     });
 
 });
 
-// Google Api
+// Randi Code
+$(".button").on("click", function() {
+
+    event.preventDefault();
+
+    var artistInput = $("#artist-search").val().trim();
+
+    var queryURL = "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=bc8827527e974e0dba93f18bb17c76a3&q=" + artistInput;
+    console.log(queryURL);
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+
+        for (var i = 0; i < 3; i++) {
+            var articleDiv = $("<p>")
+            var article = response.response.docs[i].snippet
+            
+            articleDiv.text(article);
+            $("#article-section").append(articleDiv);
+
+            console.log(article);
+
+            var nytURL = response.response.docs[i].web_url
+                console.log(nytURL);
+            var showURL = $("<p>").text("Link: " + nytURL);
+            $(articleDiv).append(showURL);
+        }
+        
+
+    });
+});
 
