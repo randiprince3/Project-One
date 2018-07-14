@@ -1,4 +1,40 @@
-$("#run-search").on("click", function() {
+
+// debugger;
+var ticketQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?apikey=j3c9q4m90n44zYYlgilg9IL5rjkdY3Ux&keyword=";
+var nytQueryUrl=0;
+var table=$("<table>");
+
+$(".button").on("click",function(){
+    console.log(userSearch);
+    var userSearch = $("#artist-search").val();
+    $ .ajax({
+        url:ticketQueryURL + userSearch,
+        method:"GET",
+    }).then(function(response){
+        console.log(response);
+        
+        for(var i=0;i<3;i++){
+           var showName=response._embedded.events[i].name;
+           var dates=response._embedded.events[i].dates.start.localDate;
+           var venue=response._embedded.events[i]._embedded.venues[0].name;
+           var cityName=response._embedded.events[i]._embedded.venues[0].city.name;
+           var newRow = $("<tr>").append(
+            $("<td>").text(showName),
+            $("<td>").text(dates),
+            $("<td>").text(venue),
+            $("<td>").text(cityName)
+          );
+
+           $(".responsive-table > tbody").append(newRow);
+        }
+        
+         
+    });
+
+});
+
+// Randi Code
+$(".button").on("click", function() {
 
     event.preventDefault();
 
@@ -12,8 +48,6 @@ $("#run-search").on("click", function() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-
-        $("#article-section").empty();
 
         for (var i = 0; i < 3; i++) {
             var articleDiv = $("<p>")
@@ -32,34 +66,4 @@ $("#run-search").on("click", function() {
         
 
     });
-    // var artistInput = $("#artist-search").val().trim();
-    // var ticketQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?apikey=j3c9q4m90n44zYYlgilg9IL5rjkdY3Ux&keyword=" + artistInput;
-
-    
-    // $ .ajax({
-    //     url: ticketQueryURL,
-    //     method:"GET"
-    // }).then(function(response){
-    //     console.log(response);
-        
-    //     for(var i=0; i<5; i++){
-    //         var artistEvent = response._embedded.events[i].name;
-    //         var artistVenue = response._embedded.events[i]._embedded.venues[i].name;
-    //         var artistDate = response._embedded.events[i].dates.start.localDate;
-    //         var artistPric = 
-    //     //  Event Name
-    //     $(".body").append(response._embedded.events[i].name);
-    //     // // Event date
-    //     $(".body").append(response._embedded.events[i].dates.start.localDate);
-    //     // // Event Location
-    //     $(".body").append(response._embedded.events[i]._embedded.venues[i].name);
-    //     // // Ticket Price
-    //     // $(".body").append(response._embedded.events[i]._embedded.venues[i].state.name);
-    //     }
-    //     //  $(".body").append($("<img>").attr("src",response._embedded.events["0"].images["0"].url));
-
-
 });
-
-
-// debugger
