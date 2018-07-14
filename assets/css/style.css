@@ -1,6 +1,3 @@
-.content{
-    background-color: teal;
-}
-.side{
-    background-color: grey;
+p {
+    font-size: 24px;
 }
