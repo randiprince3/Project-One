@@ -1,138 +1,114 @@
-
-
 <!DOCTYPE html>
-<html>
-  <head>
-      <meta charset="utf-8" />
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="assets/css/style.css">
-     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
+  <html>
+    <head>
+        <meta charset="utf-8" />
+      <!--css reset-->
+      <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="assets/css/style.css">
+       <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+      <!--Custom CSS-->
+      <link rel="stylesheet" href="assets/css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
 
 <body>
 
 <!--Header/Logo?/Project name-->
-<div class="row">
-  <div class="col l12 s12 m7">
-    <div class="card z-depth-5">
-      <div class="card-image center-align">
-        <img src="assets/images/bg.jpg" height="200px">
-          <div class="card-title">Working Title...</div>
-      </div>
-      <div class="card-content">
-        <p class="center-align">Welcome to Working Title... the best place to search for upcoming events and read up on the latest news....</p>
-      </div>
-    </div>
-  </div>
-</div>
-      
-<!--Two sections. Left side is for artist search and ticketmaster. Right side is to be populated by NY Times articles-->
-<div class="row">
-  <div class="col l6">
-    <div class="card-panel card-title z-depth-5">
-      <h5 class="center-align">Search an artist for upcoming events</h5>
-      <hr> <br> <br>
-      <div class="input-fields">
-        <input type="text" placeholder="Search Artist" id="artist-search">
-          <table class="striped responsive-table">
-            <thead>
-              <tr>
-                <th>Artist</th>
-                <th>Venue</th>
-                <th>Date</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!--Example rows. Please Delete-->
-              <tr>
-                <td>Drake</td>
-                <td>Staples Center</td>
-                <td>08/01/18</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>Wiz Khalifa</td>
-                <td>The Forum</td>
-                <td>08/03/18</td>
-                <td>$90</td>
-              </tr>
-              <tr>
-                <td>Kanye West</td>
-                <td>Hollywood Bowl</td>
-                <td>09/03/18</td>
-                <td>$190</td>
-              </tr>
-              <tr>
-                <td>ABBA</td>
-                <td>Hollywood Bowl</td>
-                <td>11/03/18</td>
-                <td>$65</td>
-              </tr>
-              <tr>
-                <td>Metallica</td>
-                <td>Hollywood Bowl</td>
-                <td>11/03/18</td>
-                <td>$75</td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-        <button class="btn waves-effect waves-light #4a148c purple darken-4" id="run-search" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-        <button class="btn waves-effect waves-light #4a148c purple darken-4" id="clear-all" type="button" name="action">Clear
-          <i class="material-icons right">clear</i>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col l6">
-      <div class="card-panel card-title z-depth-5">
-        <h5 class="center-align">Read the latest news below</h5>
-        <hr> <br> <br>
-
-        <!--This section will hold news articles-->
-        <div id="article-section">
-            <!--Examples. Please delete-->
-            <p><a href="#">Drake News</a></p>
-            <p><a href="#">Wiz Khalifa News</a></p>
-            <p><a href="#">Kanye West</a></p>
-            <p><a href="#">ABBA News</a></p>
-            <p><a href="#">Metallica News</a></p>
+  <div class="row">
+    <div class="col l12 s12 m7">
+      <div class="card z-depth-5">
+        <div class="card-image center-align">
+          <img src="assets/images/bg.jpg" height="200px">
+            <div class="card-title">Working Title...</div>
+        </div>
+        <div class="card-content">
+          <p class="center-align">Welcome to Working Title... the best place to search for upcoming events and read up on the latest news....</p>
         </div>
       </div>
     </div>
-</div>
-
-
-<!--Footer. API's used etc...-->
-<footer class="page-footer #ab47bc purple lighten-1">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Working Title...</h5>
-          <p class="grey-text text-lighten-4 ">Powered by Ticket Master and NY Times</p>
+  </div>
+        
+<!--Two sections. Left side is for artist search and ticketmaster. Right side is to be populated by NY Times articles-->
+  <div class="row">
+    <div class="col l6">
+      <div class="card-panel card-title z-depth-5">
+        <h5 class="center-align">Search an artist for upcoming events</h5>
+        <hr> <br> <br>
+        <div class="input-fields">
+          <input type="text" placeholder="Search Artist" id="artist-search">
+            <table class="tab striped responsive-table">
+              <thead>
+                <tr>
+                  <th>Artist</th>
+                  <th>Venue</th>
+                  <th>Date</th>
+                  <th>City</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--Example rows. Please Delete-->
+                <tr>
+                  <td class="artistName"></td>
+                  <td class="venue"></td>
+                  <td class="date"></td>
+                  <td class="city"></td>
+                </tr>
+              </tbody>
+            </table>
+            <span class="test"></span>
+            <br>
+          <button class=" button btn waves-effect waves-light #4a148c purple darken-4" id="run-search" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+          <button class="btn waves-effect waves-light #4a148c purple darken-4" id="clear-all" type="button" name="action">Clear
+            <i class="material-icons right">clear</i>
+          </button>
+        </div>
       </div>
     </div>
+    <div class="col l6">
+        <div class="card-panel card-title z-depth-5">
+          <h5 class="center-align">Read the latest news below</h5>
+          <hr> <br> <br>
+
+          <!--This section will hold news articles-->
+          <div id="article-section">
+              <!--Examples. Please delete-->
+              
+          </div>
+        </div>
+      </div>
   </div>
-  <div class="footer-copyright">
+
+  
+<!--Footer. API's used etc...-->
+  <footer class="page-footer #ab47bc purple lighten-1">
     <div class="container">
-      © 2018 Copyright
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Working Title...</h5>
+            <p class="grey-text text-lighten-4 ">Powered by Ticket Master and NY Times</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
-          
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+            
 <!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="assets/javascript/app.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/app.js"></script>
 </body>
 </html>
