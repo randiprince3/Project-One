@@ -5,10 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!--materialize css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!--custom css-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!--materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--materialize js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <!--custom js-->
     <script src="main.js"></script>
 </head>
 <body>
+    <div class="container">
+        
+        <header>
+            <h1 class="header center-align col s12">
+                Working Header
+            </h1>
+        </header>
+        
+        <div class="section row">
+            <div class="search input-field col s12">
+                <input Placeholder="Search Artist Here" type="text" class="validate">
+                <label for="search_artist">Search Artist</label>
+                <button class="btn waves-effect waves-light col s2" type="submit" name="action">Submit
+                    <i class="material-icons right">Send</i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="table row">
+            <table class="col s12">
+                <thead>
+                    <tr>
+                        <th class="teal-text">Event</th>
+                        <th class="teal-text">Venue</th>
+                        <th class="teal-text">Date</th>
+                        <th class="teal-text">City</th>
+                        <th class="teal-text">State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="event"></td>
+                        <td class="venue"></td>
+                        <td class="date"></td>
+                        <td class="city"></td>
+                        <td class="state"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
     
 </body>
 </html>
