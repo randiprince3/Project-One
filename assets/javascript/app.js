@@ -1,4 +1,4 @@
-$(".button").on("click",function(){
+$("#run-search").on("click",function(){
     event.preventDefault();
     var ticketQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?apikey=j3c9q4m90n44zYYlgilg9IL5rjkdY3Ux&keyword=";
     var userSearch = $("#artist-search").val().trim();
@@ -21,7 +21,7 @@ $(".button").on("click",function(){
 
            var venue = response._embedded.events[i]._embedded.venues[0].name;
            var cityName = response._embedded.events[i]._embedded.venues[0].city.name;
-           var eventLink = showName.link(response._embedded.events[i].url);
+           var eventLink = $('<a>').attr('href', response._embedded.events[i].url).attr('target', '_blank').append(showName);
         
            var newRow = $("<tr>").append(
             $("<td>").html(eventLink),
@@ -58,16 +58,18 @@ $(".button").on("click",function(){
 
             console.log(headline);
 
-            var nytURL = response.response.docs[i].web_url;
-            console.log(nytURL);
+            // var nytURL = response.response.docs[i].web_url;
+            // console.log(nytURL);
             var snippet = response.response.docs[i].snippet;
-            var openLink = snippet.link(nytURL);
+            var openLink = $('<a>').attr('href', response.response.docs[i].web_url).attr('target', '_blank').append(snippet);
                 
-            var showURL = $("<p>").html("See the full article here: " + openLink);
+            var showURL = $("<p>").append("Link: ", openLink);
             
             $(articleDiv).append(showURL);
 
         } 
+        $("#artist-search").val("");
+        
 
     });
 
