@@ -2,18 +2,18 @@
   <html>
     <head>
         <meta charset="utf-8" />
-      <!--css reset-->
-      <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+        <title>Hello</title>
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--CSS reset-->
+      <link rel="stylesheet" href="assets/css/reset.css">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link rel="stylesheet" href="assets/css/style.css">
        <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-      <!--Custom CSS-->
-      <link rel="stylesheet" href="assets/css/style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -22,14 +22,14 @@
 
 <!--Header/Logo?/Project name-->
   <div class="row">
-    <div class="col l12 s12 m7">
+    <div class="col l12 s12 m12">
       <div class="card z-depth-5">
         <div class="card-image center-align">
           <img src="assets/images/bg.jpg" height="200px">
-            <div class="card-title">Working Title...</div>
+            <div class="card-title title">Working Title...</div>
         </div>
         <div class="card-content">
-          <p class="center-align">Welcome to Working Title... the best place to search for upcoming events and read up on the latest news....</p>
+          <p class="center-align style2">Welcome to Working Title... the best place to search for upcoming events and read up on the latest news....</p>
         </div>
       </div>
     </div>
@@ -37,13 +37,13 @@
         
 <!--Two sections. Left side is for artist search and ticketmaster. Right side is to be populated by NY Times articles-->
   <div class="row">
-    <div class="col l6">
+    <div class="col l6 m6 s12">
       <div class="card-panel card-title z-depth-5">
-        <h5 class="center-align">Search an artist for upcoming events</h5>
-        <hr> <br> <br>
+        <h5 class="center-align artistSearch">Search an artist for upcoming events</h5>
+        <hr><br>
         <div class="input-fields">
           <input type="text" placeholder="Search Artist" id="artist-search">
-            <table class="tab striped responsive-table">
+            <table id="artist-events" class="tab striped table">
               <thead>
                 <tr>
                   <th>Artist</th>
@@ -54,12 +54,7 @@
               </thead>
               <tbody>
                 <!--Example rows. Please Delete-->
-                <tr>
-                  <td class="artistName"></td>
-                  <td class="venue"></td>
-                  <td class="date"></td>
-                  <td class="city"></td>
-                </tr>
+             
               </tbody>
             </table>
             <span class="test"></span>
@@ -67,16 +62,13 @@
           <button class=" button btn waves-effect waves-light #4a148c purple darken-4" id="run-search" name="action">Submit
             <i class="material-icons right">send</i>
           </button>
-          <button class="btn waves-effect waves-light #4a148c purple darken-4" id="clear-all" type="button" name="action">Clear
-            <i class="material-icons right">clear</i>
-          </button>
         </div>
       </div>
     </div>
-    <div class="col l6">
+    <div class="col l6 m6 s12">
         <div class="card-panel card-title z-depth-5">
-          <h5 class="center-align">Read the latest news below</h5>
-          <hr> <br> <br>
+          <h5 class="center-align news">Read the latest news below</h5>
+          <hr> <br>
 
           <!--This section will hold news articles-->
           <div id="article-section">
@@ -92,16 +84,16 @@
   <footer class="page-footer #ab47bc purple lighten-1">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Working Title...</h5>
-            <p class="grey-text text-lighten-4 ">Powered by Ticket Master and NY Times</p>
+        <div class="col l6 m6 s12">
+          <h5 class="white-text styleFooter">Working Title...</h5>
+            <p class="grey-text text-lighten-4 styleFooter">Powered by Ticket Master and NY Times</p>
         </div>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
+    <div class="footer-copyright copyright">
+      <div class="container copyright">
         © 2018 Copyright
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <a class="grey-text text-lighten-4 right moreLinks" href="#!">More Links</a>
       </div>
     </div>
   </footer>
@@ -110,5 +102,38 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="assets/javascript/app.js"></script>
   <script src="assets/javascript/app.js"></script>
+  <!-- LINK TO FIREBASE GOES HERE -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyBLQpKlUuikhGH1iWmpgIMfAFA6G8go0ro",
+    authDomain: "project-one-bc508.firebaseapp.com",
+    databaseURL: "https://project-one-bc508.firebaseio.com",
+    projectId: "project-one-bc508",
+    storageBucket: "project-one-bc508.appspot.com",
+    messagingSenderId: "471673883230"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+search = "";
+$(".button").on("click", function() {
+  event.preventDefault();
+  search = $("#artist-search").val().trim();
+  database.ref().set({
+      search: search,
+    });
+});
+database.ref().on("value", function(snapshot) {
+// Print the initial data to the console.
+console.log(snapshot.val());
+// Log the value of the various properties
+console.log(snapshot.val().search);
+// If any errors are experienced, log them to console.
+}, function(errorObject) {
+console.log("The read failed: " + errorObject.code);
+});
+</script>
 </body>
 </html>

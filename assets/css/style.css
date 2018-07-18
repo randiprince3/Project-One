@@ -1,9 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
 
-p {
-    font-family: 'Archivo Narrow', sans-serif;
+
+.title {
     font-size: 24px;
     margin: 5px;
     padding: 5px;
 }
 
+.style2 {
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.newsArticles {
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.artistSearch {
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.styleFooter {
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+.copyright {
+    font-size: 14px;
+    color: ;
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+.moreLinks {
+    font-size: 14;
+    color: ;
+    margin: 5px;
+    padding: 5px;
+}
