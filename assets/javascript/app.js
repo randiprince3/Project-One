@@ -13,7 +13,7 @@ $(".button").on("click",function(){
     }).then(function(response){
         console.log(response);
         
-        for(var i=0;i<3;i++){
+        for(var i=0;i<5;i++){
            var showName=response._embedded.events[i].name;
            var dates=response._embedded.events[i].dates.start.localDate;
            var venue=response._embedded.events[i]._embedded.venues[0].name;
@@ -37,6 +37,7 @@ $(".button").on("click",function(){
 $(".button").on("click", function() {
 
     event.preventDefault();
+    
 
     var artistInput = $("#artist-search").val().trim();
 
@@ -57,14 +58,14 @@ $(".button").on("click", function() {
             $("#article-section").append(articleDiv);
 
             console.log(article);
+            
 
             var nytURL = response.response.docs[i].web_url
                 console.log(nytURL);
-            var showURL = $("<p>").text("Link: " + nytURL);
+            var showURL = $("<p>").append("<a>"+nytQueryUrl+"</a>").attr("href", nytQueryUrl);
             $(articleDiv).append(showURL);
         }
         
 
     });
 });
-
