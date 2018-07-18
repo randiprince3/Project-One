@@ -10,6 +10,7 @@
        <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -36,7 +37,7 @@
     <div class="col l6">
       <div class="card-panel card-title z-depth-5">
         <h5 class="center-align">Search an artist for upcoming events</h5>
-        <hr> <br> <br>
+        <hr><br>
         <div class="input-fields">
           <input type="text" placeholder="Search Artist" id="artist-search">
             <table class="tab striped responsive-table">
@@ -58,16 +59,13 @@
           <button class=" button btn waves-effect waves-light #4a148c purple darken-4" id="run-search" name="action">Submit
             <i class="material-icons right">send</i>
           </button>
-          <button class="btn waves-effect waves-light #4a148c purple darken-4" id="clear-all" type="button" name="action">Clear
-            <i class="material-icons right">clear</i>
-          </button>
         </div>
       </div>
     </div>
     <div class="col l6">
         <div class="card-panel card-title z-depth-5">
           <h5 class="center-align">Read the latest news below</h5>
-          <hr> <br> <br>
+          <hr> <br>
 
           <!--This section will hold news articles-->
           <div id="article-section">
@@ -101,5 +99,47 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="assets/javascript/app.js"></script>
   <script src="assets/javascript/app.js"></script>
+  <!-- LINK TO FIREBASE GOES HERE -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyBLQpKlUuikhGH1iWmpgIMfAFA6G8go0ro",
+    authDomain: "project-one-bc508.firebaseapp.com",
+    databaseURL: "https://project-one-bc508.firebaseio.com",
+    projectId: "project-one-bc508",
+    storageBucket: "project-one-bc508.appspot.com",
+    messagingSenderId: "471673883230"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+search = "";
+
+$(".button").on("click", function() {
+
+  event.preventDefault();
+
+  search = $("#artist-search").val().trim();
+
+  database.ref().set({
+      search: search,
+    });
+
+});
+database.ref().on("value", function(snapshot) {
+
+// Print the initial data to the console.
+console.log(snapshot.val());
+
+// Log the value of the various properties
+console.log(snapshot.val().search);
+// If any errors are experienced, log them to console.
+}, function(errorObject) {
+console.log("The read failed: " + errorObject.code);
+});
+</script>
 </body>
 </html>
