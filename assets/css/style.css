@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Carter+One');
 
-
-.title {
-    font-size: 24px;
+#title {
+    font-family: 'Carter One', cursive;
+    color: ;
+    left: 540px;
+    font-weight: bold;
+    font-size: 96px;
     margin: 5px;
     padding: 5px;
 }
 
 .style2 {
+    font-family: 'Carter One', cursive;
     font-size: 24px;
     margin: 5px;
     padding: 5px;
@@ -19,13 +24,30 @@
 }
 
 .artistSearch {
+    font-family: 'Carter One', cursive;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.news {
+    font-family: 'Carter One', cursive;
     font-size: 24px;
     margin: 5px;
     padding: 5px;
 }
 
 .styleFooter {
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+.styleFooter2 {
+    font-weight: bold;
+    font-size: 16px;
     margin: 5px;
     padding: 5px;
     
@@ -37,11 +59,4 @@
     margin: 5px;
     padding: 5px;
     
-}
-
-.moreLinks {
-    font-size: 14;
-    color: ;
-    margin: 5px;
-    padding: 5px;
 }
