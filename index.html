@@ -24,13 +24,20 @@
 <!--Header/Logo?/Project name-->
   <div class="row">
     <div class="col l12 s12 m12">
-      <div class="card z-depth-5">
-        <div class="card-image center-align">
+      <div class="card z-depth-5 titleCard">
+          <div id="title" class="card-title valign center-align">Stan</div>
+        <!-- <div class="card-image center-align">
           <img src="assets/images/bg.jpg" height="200px">
             <div id="title" class="card-title">Stan</div>
-        </div>
-        <div class="card-content">
+        </div> -->
+        <!-- <div class="card-content">
           <p class="center-align style2">Welcome to Stan... the best place to search for upcoming events and read up on the latest news....</p>
+        </div> -->
+      </div>
+      <!--second header card-->
+      <div class="card z-depth-5 titleCard2">
+        <div class="card-content">
+          <p id="style2" class="center-align">Welcome to Stan... the best place to search for upcoming events and read up on the latest news....</p>
         </div>
       </div>
     </div>
@@ -66,6 +73,8 @@
         </div>
       </div>
     </div>
+
+
     <div class="col l6 m6 s12">
         <div class="card-panel card-title z-depth-5">
           <h5 class="center-align news">Read the latest news below</h5>
@@ -133,6 +142,14 @@ console.log(snapshot.val().search);
 }, function(errorObject) {
 console.log("The read failed: " + errorObject.code);
 });
+
+//modal intialization
+// $(document).ready(function(){
+//     $('.modal').modal();
+//     if($('#artist-search').val() == ''){
+
+//     }
+//   });
 </script>
 </body>
 </html>

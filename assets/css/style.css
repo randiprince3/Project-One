@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Carter+One');
 
-#title {
-    font-family: 'Carter One', cursive;
-    color: ;
-    left: 540px;
-    font-weight: bold;
-    font-size: 96px;
-    margin: 5px;
-    padding: 5px;
+.titleCard {
+    background-image: url("../images/bg.jpg");
+    height: 180px;
 }
 
-.style2 {
+#title {
     font-family: 'Carter One', cursive;
+    text-align: center;
+    color: white;
+    /* left: 540px; */
+    font-weight: bold;
+    font-size: 96px;
+    margin: auto;
+    padding: auto;
+}
+
+#style2 {
+    font-family: 'Carter One', cursive;
+    color: black;
     font-size: 24px;
     margin: 5px;
     padding: 5px;
@@ -55,7 +62,6 @@
 
 .copyright {
     font-size: 14px;
-    color: ;
     margin: 5px;
     padding: 5px;
     
