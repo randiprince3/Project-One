@@ -15,10 +15,12 @@ var search = "";
 $("#run-search").on("click",function(){
 
     event.preventDefault();
-    
-    var ticketQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?apikey=j3c9q4m90n44zYYlgilg9IL5rjkdY3Ux&keyword=";
     var userSearch = $("#artist-search").val().trim();
-
+    var ticketQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?apikey=j3c9q4m90n44zYYlgilg9IL5rjkdY3Ux&keyword=";
+    
+ if (userSearch === "") {
+    M.toast({html: 'You must enter something in the search bar', classes: "blue 1000"})
+} else {
     database.ref().push({
         search: userSearch,
       });
@@ -59,7 +61,7 @@ $("#run-search").on("click",function(){
     console.log(queryURL);
 
     $(".card-content").html("<h5>Current Events for " + userSearch.substring(0,1).toUpperCase() + userSearch.substring(1).toLowerCase() + "</h5>").addClass("new-info");
-
+    
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -72,14 +74,12 @@ $("#run-search").on("click",function(){
             var articleDiv = $("<p>");
             var headline = response.response.docs[i].headline.main;
             
-            articleDiv.html("<u><strong>" + headline + "</strong></u>");
+            articleDiv.html("<u><strong>" + headline + "</strong></u>").addClass("headline-style");
 
             $("#article-section").append(articleDiv);
 
             console.log(headline);
 
-            // var nytURL = response.response.docs[i].web_url;
-            // console.log(nytURL);
             var snippet = response.response.docs[i].snippet;
             var openLink = $('<a>').attr('href', response.response.docs[i].web_url).attr('target', '_blank').append(snippet);
                 
@@ -87,10 +87,10 @@ $("#run-search").on("click",function(){
             
             $(articleDiv).append(showURL);
 
-        } 
-        $("#artist-search").val("");
+        }
     
-
     });
-
-});
+}
+    $("#artist-search").val("");
+    
+    });
