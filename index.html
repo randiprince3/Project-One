@@ -1,72 +1,74 @@
 <!DOCTYPE html>
   <html>
     <head>
+      <title>Stan</title>
         <meta charset="utf-8" />
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link rel="stylesheet" href="assets/css/style.css">
        <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!-- Firebase -->
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
     </head>
 
 <body>
 
-<!--Header/Logo?/Project name-->
   <div class="row">
-    <div class="col l12 s12 m7">
-      <div class="card z-depth-5">
-        <div class="card-image center-align">
-          <img src="assets/images/bg.jpg" height="200px">
-            <div class="card-title">Working Title...</div>
+    <div class="col s12 m12 l12">
+      <div class="card z-depth-5 title-image">
+            <div id="title" class="card-title center-align">Stan</div>
         </div>
+        <div class="card z-depth-5 title-image2">
         <div class="card-content">
-          <p class="center-align">Welcome to Working Title... the best place to search for upcoming events and read up on the latest news....</p>
+          <p class="style2 center-align">Welcome to Stan... the best place to search for upcoming events and read up on the latest news....</p>
         </div>
       </div>
     </div>
   </div>
         
-<!--Two sections. Left side is for artist search and ticketmaster. Right side is to be populated by NY Times articles-->
-  <div class="row">
-    <div class="col l6">
+ <!--Two sections. Left side is for artist search and ticketmaster. Right side is to be populated by NY Times articles-->
+ <div class="row info">
+    <div class="events col s12 m6 l6">
       <div class="card-panel card-title z-depth-5">
-        <h5 class="center-align">Search an artist for upcoming events</h5>
-        <hr><br>
+        <h5 class="center-align artistSearch">Upcoming Events</h5>
+        <hr>
         <div class="input-fields">
-          <input type="text" placeholder="Search Artist" id="artist-search">
-            <table class="tab striped responsive-table">
+            <input type="text" placeholder="Search Artist" id="artist-search">
+            <table id="artist-events" class="striped">
               <thead>
                 <tr>
-                  <th>Artist</th>
-                  <th>Venue</th>
-                  <th>Date</th>
-                  <th>City</th>
+                  <th id="artist-display">Artist</th>
+                  <th id="venue-display">Venue</th>
+                  <th id="date-display">Date</th>
+                  <th id="city-display">City</th>
                 </tr>
               </thead>
-              <tbody>
-                <!--Example rows. Please Delete-->
-             
+              <tbody id="event-values">
+
               </tbody>
             </table>
-            <span class="test"></span>
+            <!-- <span class="test"></span> -->
             <br>
-          <button class=" button btn waves-effect waves-light #4a148c purple darken-4" id="run-search" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
+            <button class="button btn waves-effect waves-light #4a148c purple darken-4" id="run-search" name="action">Search<i class="small material-icons right">arrow_forward</i>
+            </button>
         </div>
       </div>
     </div>
-    <div class="col l6">
+    <div class="events col s12 m6 l6">
         <div class="card-panel card-title z-depth-5">
-          <h5 class="center-align">Read the latest news below</h5>
-          <hr> <br>
-
+          <h5 class="center-align news">Read the latest news below</h5>
+          <hr> 
           <!--This section will hold news articles-->
           <div id="article-section">
               <!--Examples. Please delete-->
@@ -76,70 +78,26 @@
       </div>
   </div>
 
-  
 <!--Footer. API's used etc...-->
-  <footer class="page-footer #ab47bc purple lighten-1">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Working Title...</h5>
-            <p class="grey-text text-lighten-4 ">Powered by Ticket Master and NY Times</p>
-        </div>
+<footer class="page-footer #ab47bc purple lighten-1">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 m6 s12">
+        <h5 class="white-text styleFooter">Stan</h5>
+          <p class="grey-text text-lighten-4 styleFooter2">Powered by Ticketmaster and New York Times</p>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2018 Copyright
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
+  </div>
+  <div class="footer-copyright copyright">
+    <div class="container copyright">
+      © 2018 Copyright
+      <a class="grey-text text-lighten-4 right group-names">Ara, Travis, Randi, Alex</a>
     </div>
-  </footer>
+  </div>
+</footer>
             
 <!--JavaScript at end of body for optimized loading-->
-  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="assets/javascript/app.js"></script>
-  <script src="assets/javascript/app.js"></script>
-  <!-- LINK TO FIREBASE GOES HERE -->
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
-<script>
-  var config = {
-    apiKey: "AIzaSyBLQpKlUuikhGH1iWmpgIMfAFA6G8go0ro",
-    authDomain: "project-one-bc508.firebaseapp.com",
-    databaseURL: "https://project-one-bc508.firebaseio.com",
-    projectId: "project-one-bc508",
-    storageBucket: "project-one-bc508.appspot.com",
-    messagingSenderId: "471673883230"
-  };
-  firebase.initializeApp(config);
 
-  var database = firebase.database();
-
-search = "";
-
-$(".button").on("click", function() {
-
-  event.preventDefault();
-
-  search = $("#artist-search").val().trim();
-
-  database.ref().set({
-      search: search,
-    });
-
-});
-database.ref().on("value", function(snapshot) {
-
-// Print the initial data to the console.
-console.log(snapshot.val());
-
-// Log the value of the various properties
-console.log(snapshot.val().search);
-// If any errors are experienced, log them to console.
-}, function(errorObject) {
-console.log("The read failed: " + errorObject.code);
-});
-</script>
 </body>
 </html>
