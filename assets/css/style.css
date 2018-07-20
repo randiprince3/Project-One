@@ -1,27 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Carter+One');
 
-.titleCard {
-    background-image: url("../images/bg.jpg");
-    height: 180px;
-}
-
 #title {
-    font-family: 'Carter One', cursive;
-    text-align: center;
+    font-family: 'Carter One', cursive, sans-serif;
     color: white;
-    /* left: 540px; */
     font-weight: bold;
     font-size: 96px;
-    margin: auto;
-    padding: auto;
+    padding: 5px;
+    margin-left: 25px;
 }
 
-#style2 {
-    font-family: 'Carter One', cursive;
-    color: black;
+.style2 {
+    font-family: 'Carter One', cursive, sans-serif;
     font-size: 24px;
     margin: 5px;
     padding: 5px;
+    background: white;
+}
+
+.new-info {
+    font-family: 'Carter One', cursive, sans-serif;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    background: white;
 }
 
 .newsArticles {
@@ -31,14 +33,14 @@
 }
 
 .artistSearch {
-    font-family: 'Carter One', cursive;
+    font-family: 'Carter One', cursive, sans-serif;
     font-size: 24px;
     margin: 5px;
     padding: 5px;
 }
 
 .news {
-    font-family: 'Carter One', cursive;
+    font-family: 'Carter One', cursive, sans-serif;
     font-size: 24px;
     margin: 5px;
     padding: 5px;
@@ -62,7 +64,23 @@
 
 .copyright {
     font-size: 14px;
+    color: ;
     margin: 5px;
     padding: 5px;
     
+}
+
+.title-image {
+    background-image: url("../images/bg.jpg");
+}
+.group-names {
+    font-weight: bold;
+    font-size: 14px;
+    font-style: initial;
+
+}
+
+.page-footer{
+    margin: 12px;
+    padding: 12px;
 }
