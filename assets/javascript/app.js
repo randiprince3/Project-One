@@ -57,7 +57,7 @@ $("#run-search").on("click",function(){
          
     });
 
-    var queryURL = "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=bc8827527e974e0dba93f18bb17c76a3&q=" + userSearch;
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=bc8827527e974e0dba93f18bb17c76a3&q=" + userSearch;
     console.log(queryURL);
 
     $(".card-content").html("<h5>Current Events for " + userSearch.substring(0,1).toUpperCase() + userSearch.substring(1).toLowerCase() + "</h5>").addClass("new-info");
